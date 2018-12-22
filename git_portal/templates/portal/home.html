@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Fine-Leap Systems</title>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron container">
+        <h1>Welcome To Fine-Leap Systems</h1>
+        <br><br><br>
+        <a href="{% url "add_attendance" %}"><button type="submit">Add Today's Attendance</button></a>
+
+    </div>
+{% endblock %}

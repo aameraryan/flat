@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+{% block title %}
+    <title>{{ month}} | Calendar</title>
+{% endblock %}
+{% block content %}
+    <div class="jumbotron text-center container">
+        <h2>{{ month}}</h2>
+
+        <table border="2" class="table">
+            <tr>
+                <td>Dates</td>
+                {% for date in dates|dictsort:"My_Date" %}
+                    <td>{{date.My_Date}}</td>
+                {% endfor %}
+            </tr>
+            {% for employee in employees %}
+                <tr>
+                    <td>{{ employee }}</td>
+                    {% for date in dates %}
+                        <td>{% get_something employee date %}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+
+
+
+
+

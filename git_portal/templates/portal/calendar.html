@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+
+{% block title %}
+    <title>Calendar</title>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-center container">
+        {% for month in all_months%}
+            <h4>{{ forloop.counter }}-<a href="{% url "month_calendar" month_id=month %}">{{ month}}</a></h4>
+{#            <h4>{{ forloop.counter }}-<a href="#">{{ month}}</a></h4>#}
+        {% endfor %}
+    </div>
+
+{% endblock %}
