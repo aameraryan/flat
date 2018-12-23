@@ -1,0 +1,83 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% block title %}#}
+{#    <title>Add Attendance | Fine-Leap Systems</title>#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="jumbotron container text-center">#}
+{##}
+{#    <form method="post" action="{% url "add_attendance" %}">#}
+{##}
+{#        {% csrf_token %}#}
+{##}
+{#        <label >Date</label>#}
+{#        <input name="date" type="date">#}
+{#    <br><br>#}
+{##}
+{#        {% for employee in employees %}#}
+{#            <label>{{ employee.Name }}</label>#}
+{#            <select name="emp--{{ employee.id }}">#}
+{#                <option value=1>Full Day</option>#}
+{#                <option value=0.5>Half Day</option>#}
+{#                <option value=0>Absent</option>#}
+{#            </select>#}
+{#            <br>#}
+{#        {% endfor %}#}
+{#    <br><br>#}
+{#        <button class="btn btn-primary" type="submit">Submit</button>#}
+{#    </form>#}
+{##}
+{#    </div>#}
+{#{% endblock %}#}
+
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrastyle %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+
+ <div class="jumbotron container text-center" style="background-color: rgba(194, 209, 240, 0.5); padding: 15px">
+
+     <u><h2>Add Today's Attendance </h2></u>
+
+    <br><br><br>
+
+    <form method="post" action="{% url "add_attendance" %}" class="form-inline">
+
+        {% csrf_token %}
+        <div class="text-center">
+            <label style="font-weight: bolder">Date : </label>
+            <input name="date" type="date">
+        </div>
+        <br><br>
+        <div class="text-center" style="margin-left: 30%">
+            {% for employee in employees %}
+                <div style="width: 300px;margin: 20px" class="text-center" >
+                    <label style="float: left"><b>{{ employee.Name }} : </b></label>
+                    <select name="emp--{{ employee.id }}" style="float: right">
+                        <option value=1>Full Day</option>
+                        <option value=0.5>Half Day</option>
+                        <option value=0>Absent</option>
+                    </select>
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+    <br><br>
+        <button class="btn btn-danger" type="reset">Reset</button>
+        <button class="btn btn-info" type="submit">Submit</button>
+    </form>
+
+    </div>
+
+
+{% endblock %}

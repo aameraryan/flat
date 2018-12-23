@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+
+{% block extrastyle %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+
+{% block portal_content %}
+    <div class="jumbotron container">
+        <h2 class="text-center">Welcome To Fine-Leap Systems</h2>
+        <br><br><br>
+        <div class="text-center">
+
+            <a href="{% url "add_attendance" %}">
+                <button class="btn btn-info" type="submit"><h4><i class="icon-pencil icon-white"></i> Add Today's Attendance</h4></button>
+            </a>
+            <a href="{% url "calendar" %}"><button class="btn btn-info" type="submit"><h4><i class="icon-calendar icon-white"></i> Calendar</h4></button></a>
+        </div>
+
+    </div>
+{% endblock %}
